@@ -1,11 +1,13 @@
 class SpacesController < ApplicationController
   def index
+    @spaces = Space.all
   end
 
   def show
   end
 
   def new
+    @spaces = Space.new
   end
 
   def create
