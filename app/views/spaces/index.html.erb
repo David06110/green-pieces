@@ -8,13 +8,13 @@
   <% end %>
 </ul>
 
-<%= link_to "Create #{@space.name}",
-            space_path(@space),
-            method: :create,
-            data: { confirm: "Do you want to create this space?" } %>
+    <%#= link_to "Create #{@space.name}",
+           # space_path(@space),
+           # method: :create,
+            #data: { confirm: "Do you want to create this space?" } %>
 
 
-<%= link_to "Delete #{@space.name}",
+<%#= link_to "Delete #{@space.name}",
             space_path(@space),
             method: :delete,
             data: { confirm: "Are you sure?" } %>
