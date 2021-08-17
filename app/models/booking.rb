@@ -3,4 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   validates :space_id, uniqueness: true
   has_many :reviews
+  
+  has_one_attached :photo
+
 end

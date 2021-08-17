@@ -21,7 +21,11 @@ class BookingsController < ApplicationController
     @bookings_user = Booking.where(user_id: current_user)
   end
 
-private
+  
+  private
 
+  def article_params
+    params.require(:article).permit(:title, :body, :photo)
+  end
 
 end

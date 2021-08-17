@@ -1,9 +1,21 @@
 <h1>Bookings#index</h1>
 <p>Find me in app/views/bookings/index.html.erb</p>
 
+
+<%= cl_image_tag("humzdtjpnkrfbrqq5k2l",
+      width: 400, height: 300, crop: :fill) %>
+
+<%= simple_form_for(article) do |f| %>
+  
+  <%= f.input :photo, as: :file %>
+  
+<% end %>
+
+
 <ul>
 <<% @bookings_user.each do |booking| %>>
 <li><<%= booking.space %>>, reprise de la card de spaces #vivaClarisse</li>
 <<% end %>>
 
 </ul>
+
