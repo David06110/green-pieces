@@ -1,5 +1,6 @@
 # Clean DataBase
 p "Nettoyage en profondeur"
+Booking.destroy_all
 Space.destroy_all
 User.destroy_all
 # Seed pour user
