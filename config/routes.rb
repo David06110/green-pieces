@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'bookings/new'
-  get 'bookings/show'
-  get 'bookings/index'
+  resources :bookings, only: [:new, :create, :show, :index]
+  # get 'bookings/new' to: 'bookings#new'
+  # get 'bookings/show'
+  # get 'bookings/index'
   get 'spaces/index'
   get 'spaces/show'
   get 'spaces/new'
