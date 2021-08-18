@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   #get 'spaces/update'
   #get 'spaces/destroy'
  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+get '/landing', to:"pages#landing"
 end
