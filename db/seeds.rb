@@ -1,5 +1,6 @@
 # Clean DataBase
 p "Nettoyage en profondeur"
+Booking.destroy_all
 Space.destroy_all
 User.destroy_all
 # Seed pour user
@@ -19,3 +20,7 @@ space1 = Space.create(type_of: "pink", name: "big pool", check_in: "16/08/21 15h
 p space1
 space2 = Space.create(type_of: "blue", name: "corner for tomatoes", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "220€",user_id: test2.id)
 p space2
+
+p "booking test"
+booking0 = Booking.create!(user: test0, space: space0)
+p booking0
