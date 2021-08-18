@@ -16,6 +16,7 @@
   </head>
 
   <body>
+
     <%= render 'shared/navbar' unless ["search", "home"].include?(params[:action]) %>
     <%= render 'shared/flashes' %>
     <%= yield %>
