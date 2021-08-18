@@ -16,9 +16,9 @@
   </head>
 
   <body>
+
     <%= render 'shared/navbar' unless ["search", "home"].include?(params[:action]) %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render 'shared/flashes' %>
     <%= yield %>
   </body>
 </html>

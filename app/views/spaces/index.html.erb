@@ -4,13 +4,11 @@
 
 <ul>
     <% @spaces.each do |space| %>
-    <li><%= link_to space.name, space_path(space) %></li>
+    <li><%= link_to space.name, space_path(space) %> <%= link_to "show", space_path(space.id) %> </li>
   <% end %>
 </ul>
 
-
-
-
+<%= link_to "Add a new space",new_space_path %>
 
     <%#= link_to "Create #{@space.name}",
            # space_path(@space),
@@ -18,12 +16,4 @@
             #data: { confirm: "Do you want to create this space?" } %>
 
 
-<%#= link_to "Delete #{@space.name}",
-            space_path(@space),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-
-
-
-
-
+ 

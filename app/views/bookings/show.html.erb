@@ -1,9 +1,17 @@
 <h1>Bookings#show</h1>
 <p>Find me in app/views/bookings/show.html.erb</p>
 
+<h2>Confirmation de réservation</h2>
+<p><%= @booking_show.user.email %>></p>
 
-<p><%= @booking_show %>></p>
+<h2>Space booked</h2>
 
-<p><<%= @space_booked %>></p>
+<h2><%= @space_booked.name %></h2>
+
+<p><%= @space_booked.type_of %></p>
+<p><%= @space_booked.check_in %></p>
+<p><%= @space_booked.check_out %></p>
+
+<h2><%= @space_booked.price %></h2>
 
 <<%= link_to "All my bookings", bookings_path %>>

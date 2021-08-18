@@ -1,0 +1,28 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://static.cotemaison.fr/medias_11779/w_2048,h_1146,c_crop,x_0,y_143/w_640,h_360,c_fill,g_north/v1521129055/projet-de-piscine-naturelle-par-diffazur-piscines_6031040.jpg);">
+  <div class="container">
+    <h1>GREEN PIECES <strong></strong> to <strong>rent a beautiful garden</strong>!</h1>
+    <p>Enjoy your free time alone or with familly & friends</p>
+    <a class="btn btn-flat" href="#">Search</a>
+  </div>
+</div>
+
+<div class="container">
+  <h2 class="mt-4">Our 3 best sellers</h2>
+  <div class="cards mt-4">
+    <%= link_to spaces_path(type: "pool") do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://static.aujardin.info/cache/th/par/piscine-beton-marinal-couloir-de-nage-600x450.jpg)">
+        <h6>Pool</h6>
+      </div>
+    <% end %>
+    <%= link_to spaces_path(type: "kitchen") do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://st.hzcdn.com/simgs/pictures/terrasses/pool-house-nuances-img~0421a20e0bc356f0_4-7750-1-5e8a5c6.jpg)">
+        <h6>Kitchen</h6>
+      </div>
+    <% end %>
+    <%= link_to spaces_path(type: "garden") do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.pinimg.com/originals/f6/69/52/f669523d9a8ebf8df3a5b7bb84fdcb34.jpg)">
+        <h6>Garden</h6>
+      </div>
+    <% end %>
+  </div>
+</div>

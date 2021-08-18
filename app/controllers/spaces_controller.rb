@@ -9,6 +9,7 @@ class SpacesController < ApplicationController
 
   def show
     @space = Space.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
@@ -16,9 +17,10 @@ class SpacesController < ApplicationController
   end
 
   def create
-    @space = Space.new(params[:space])
-    @space.save
-    redirect_to space_path(@space)
+    @space = Space.new(space_params)
+    @space.user = current_user
+    @space.save!
+    redirect_to space_path(@space.id)
   end
 
   def edit
@@ -39,9 +41,9 @@ class SpacesController < ApplicationController
 #end
 
 
-#private
- # def space_params
-   # params.require(:space).permit(:name, :type, :price, :check_in, :check_out)
-  #end
+private
+  def space_params
+   params.require(:space).permit(:name, :type_of, :price, :check_in, :check_out)
+  end
 
 end
