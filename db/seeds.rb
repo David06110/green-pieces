@@ -8,8 +8,8 @@ p "Création du admin"
 test0 = User.create(email:"david@ducobu.com", password: "ducobu")
 test1 = User.create(email:"clarisse@hotmail.fr", password: "clarisse")
 test2 = User.create(email:"audrey@google.com", password: "audrey")
-test3 = User.create(email:"maria@gmail.com", password: "maria")
-test4 = User.create(email: "pedro@hotmail.com", password: "pedro")
+test3 = User.create(email:"maria@gmail.com", password: "maria000")
+test4 = User.create(email: "pedro@hotmail.com", password: "pedro000")
 
 p test0
 p test1
