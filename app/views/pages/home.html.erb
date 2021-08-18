@@ -1,14 +1,15 @@
-<p>Avatar / Basique happy face</p>
-
-<h1>Green Pieces</h1>
-<p>Find some peace in a green piece </p>
-
-
-<h2><%= link_to "Have a look into some paradise", spaces_index_path %></h2>
-
-<h2><%= link_to "Look the choosen paradise", bookings_index_path %></h2>
-
-
-
-
-
+<div id="home-background">
+  <div class="home-center">
+    <div>
+     <%= image_tag 'logo.png', height:"70" %>
+     <h1 class="mt-2">GREEN PIECES</h1>
+      <h2><%= link_to "Have a look into some paradise", spaces_path %></h2>
+      <h2><%= link_to "Look the choosen paradise", bookings_path %></h2>
+    </div>
+    <div class="btn-container">
+      <a class="mt-2" href="/users/sign_in"><i class="fas fa-envelope"></i>Sign by Mail</a>
+      <a class="mt-2" href=""><i class="fab fa-facebook-f"></i><span>Sign in Facebook</span></a>
+      <a class="mt-2" href=""><i class="fab fa-google"></i>Sign in Google</a>
+      </div>
+    </div>
+</div>

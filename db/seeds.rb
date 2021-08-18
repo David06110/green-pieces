@@ -22,4 +22,5 @@ space2 = Space.create(type_of: "blue", name: "corner for tomatoes", check_in: "1
 p space2
 
 p "booking test"
-Booking.create!(user: test0, space: space0)
+booking0 = Booking.create!(user: test0, space: space0)
+p booking0
