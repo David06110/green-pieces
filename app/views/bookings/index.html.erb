@@ -9,13 +9,17 @@
   <%# <%= f.input :photo, as: :file %>
 <%# <% end %>
 
-<<% if @bookings_user %>>
+<% if @bookings_user %>
+  <h2>Space booked</h2>
   <ul>
-    <<% @bookings_user.each do |booking| %>>
-      <li><<%= booking.space %>>, reprise de la card de spaces #vivaClarisse</li>
-    <<% end %>>
+    <% @bookings_user.each do |booking| %>
+      <li><%= link_to booking.space.name, space_path(booking.space) %>, from <%= booking.space.check_in %> to <%= booking.space.check_out %></li>
+      
+    <% end %>
   </ul>
 <% else %>
   <h2>You don't have any booked space yet</h2>
-  <<%= link_to "Let's go book a space", spaces_path %>>
-<<% end %>>
+  <%= link_to "Let's go book a space", spaces_path %>
+<% end %>
+
+
