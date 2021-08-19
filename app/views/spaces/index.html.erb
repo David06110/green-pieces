@@ -9,11 +9,13 @@
         <%= "Owned" %>
       <% end %>
       <%= link_to space.name, space_path(space) %>
-      <% @bookings.each do |booking| %>
-        <% if booking.space_id == space.id%>
-          <%= "Booked" %>
+      <% if bookings ==! nil %>  
+        <% @bookings.each do |booking| %>
+          <% if booking.space_id == space.id%>
+            <%= "Booked" %>
+          <% end %>
         <% end %>
-      <% end %>
+      <% end %>      
       </li>
     <% end %>
 </ul>
