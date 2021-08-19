@@ -10,6 +10,12 @@ class SpacesController < ApplicationController
   def show
     @space = Space.find(params[:id])
     @booking = Booking.new
+    @bookings_dates = @bookings.map do |booking|
+      {
+        from: booking.check_in,
+        to: booking.check_out
+      }
+    end 
   end
 
   def new
