@@ -3,9 +3,29 @@
 
 <%= simple_form_for [ @space ] do |f| %>
   <%= f.input :name %>
-  <%= f.input :type_of %>
+  <%= f.input :style %>
   <%= f.input :check_in %>
   <%= f.input :check_out %>
   <%= f.input :price %>
   <%= f.submit "Submit your space", class: "btn btn-primary" %>
 <% end %>
+
+<div class="container">
+  <div class="form-wrapper">
+    <h2>Enter space availabilities</h2>
+    <%= simple_form_for [@space, @booking] do |f| %>
+      <%= f.input :check_in, label: "Select your entry date",
+                              as: :string,
+                              required: false,
+                              input_html: { id: "range_start", class: "d-none"} %>
+      <%= f.input :check_out, label: false,
+                              as: :string,
+                              required: false,
+                              input_html: { id: "range_end", class: "d-none"} %>
+      <%= f.button :submit, "Submit your dates", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<div id="booking-form-div"
+     data-bookings="<%= @bookings_dates.to_json %>"> </div>

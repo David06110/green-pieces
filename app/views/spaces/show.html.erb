@@ -2,8 +2,7 @@
 <p>Find me in app/views/spaces/show.html.erb</p>
 
 <h2><%= @space.name %></h2>
-
-<p><%= @space.type_of %></p>
+<p><%= @space.style %></p>
 <p><%= @space.check_in %></p>
 <p><%= @space.check_out %></p>
 <h2><%= @space.price %></h2>
@@ -14,3 +13,5 @@
   <%= f.input :space_id, :as => :hidden, :input_html => { :value => @space.id } %>
   <%= f.submit "Book this space now", class: "btn btn-primary" %>
 <% end %>
+
+
