@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2021_08_19_090213) do
   end
 
   create_table "spaces", force: :cascade do |t|
-    t.string "type_of"
+    t.string "style"
     t.string "name"
     t.string "check_in"
     t.string "check_out"
