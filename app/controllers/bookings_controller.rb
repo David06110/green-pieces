@@ -23,7 +23,12 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings_user = Booking.where(user_id: current_user)
+    if Booking.where(user_id: current_user)
+      @bookings_user = Booking.where(user_id: current_user)
+    else
+      @bookings_user = false
+    raise
+    end
   end
 
   
