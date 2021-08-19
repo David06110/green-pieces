@@ -14,12 +14,19 @@ class SpacesController < ApplicationController
         #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
       }
     end
+
   end
 end
 
   def show
     @space = Space.find(params[:id])
     @booking = Booking.new
+    @bookings_dates = @bookings.map do |booking|
+      {
+        from: booking.check_in,
+        to: booking.check_out
+      }
+    end 
   end
 
   def new
@@ -39,7 +46,7 @@ end
 
   def update
     @space = Space.find(params[:id])
-    @space.update(params[:space])
+    @space.update(space_params)
     redirect_to space_path(@space)
   end
 

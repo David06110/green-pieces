@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+
+  root to:"pages#landing"
+  get 'pages/index', to: 'pages#home'
+  
 
   devise_for :users
   resources :spaces
@@ -15,5 +18,5 @@ Rails.application.routes.draw do
   # get 'spaces/update'
   # get 'spaces/destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get '/landing', to: "pages#landing"
+
 end
