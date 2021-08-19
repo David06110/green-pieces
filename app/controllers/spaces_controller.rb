@@ -1,11 +1,21 @@
 class SpacesController < ApplicationController
   before_action :authenticate_user!
+
   #include Pundit
   #before_action :find_space, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @spaces = Space.all
+      @markers = @spaces.geocoded.map do |space|
+      {
+        lat: space.latitude,
+        lng: space.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { space: space }),
+        #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      }
+    end
   end
+end
 
   def show
     @space = Space.find(params[:id])
@@ -38,12 +48,9 @@ class SpacesController < ApplicationController
    # @space.destroy
    # redirect_to space_path(@space)
   #end
-#end
-
+  #end
 
 private
   def space_params
    params.require(:space).permit(:name, :style, :price, :check_in, :check_out)
   end
-
-end
