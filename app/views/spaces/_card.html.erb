@@ -1,0 +1,23 @@
+<%= link_to space_path(space) do %>
+<div class="card-trip mb-2">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= space.name %></h2>
+      <p><%= space.description %></p>
+    </div>
+    <h2 class="card-trip-pricing"><%= space.price %> €</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+<% end %>
+
+    <% if space.user == current_user %>
+      <%#= "Owned" %>
+    <% end %>
+    <%#= link_to space.name, space_path(space) %>
+    <% @bookings.each do |booking| %>
+      <% if booking.space == space %>
+        <%#= "Booked" %>
+      <% end %>
+    <% end %>

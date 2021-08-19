@@ -4,27 +4,37 @@ class SpacesController < ApplicationController
   before_action :find_space, only: [:show, :edit, :update, :destroy]
   before_action :new_space, only: :new
   def index
-    @bookings = Booking.all
-    @spaces = Space.all
-      @markers = @spaces.geocoded.map do |space|
-      {
-        lat: space.latitude,
-        lng: space.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { space: space }),
-        #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
-      }
+
+    if params[:query]
+      @spaces = Space.where(style: params[:query])
+    else
+      @spaces = Space.all
     end
+    @markers = @spaces.geocoded.map do |space|
+    {
+      lat: space.latitude,
+      lng: space.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { space: space })
+    }
+
+    @bookings = Booking.all
+    end
+      #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      @bookings = Booking.all
+
 
   end
 
   def show
     @booking = Booking.new
+
     # @space_dates = @space.map do |date|
     #   {
     #     from: date.check_in,
     #     to: date.check_out
     #   }
     # end 
+
   end
 
   def new
