@@ -27,7 +27,6 @@ class BookingsController < ApplicationController
       @bookings_user = Booking.where(user_id: current_user)
     else
       @bookings_user = false
-    raise
     end
   end
 
