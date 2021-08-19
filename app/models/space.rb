@@ -1,5 +1,7 @@
 class Space < ApplicationRecord
   belongs_to :user
+  has_many :bookings
+  validates :style, presence: true
   STYLE = ["Garden", "Pool", "Outdoor kitchen"]
   validates :style, presence: true, inclusion: {in: STYLE}
   # validates :name, presence: true, uniqueness: true

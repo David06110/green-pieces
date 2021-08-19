@@ -5,6 +5,7 @@ class SpacesController < ApplicationController
   
   def index
     @spaces = Space.all
+    @bookings = Booking.all
   end
 
   def show

@@ -4,10 +4,20 @@
 
 <ul>
     <% @spaces.each do |space| %>
-    <li><% if space.user_id == current_user.id %>
-          <%= "Owned" %>
+      <li>
+      <% if space.user_id == current_user.id %>
+        <%= "Owned" %>
+      <% end %>
+      <%= link_to space.name, space_path(space) %>
+      <% @bookings.each do |booking| %>
+        <% if booking.space_id == space.id%>
+          <%= "Booked" %>
         <% end %>
-    <%= link_to space.name, space_path(space) %></li>
-  <% end %>
+      <% end %>
+      </li>
+    <% end %>
 </ul>
+   
+
+
 
