@@ -1,3 +1,5 @@
+
+<%= link_to "Add a new space", new_space_path %>
 <%= form_tag spaces_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
@@ -27,6 +29,22 @@
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-
   </div>
 </div>
+    <ul>
+    <% @spaces.each do |space| %>
+      <li>
+      <% if space.user_id == current_user.id %>
+        <%= "Owned" %>
+      <% end %>
+      <%= link_to space.name, space_path(space) %>
+      <% if @bookings != nil %>  
+        <% @bookings.each do |booking| %>
+          <% if booking.space_id == space.id%>
+            <%= "Booked" %>
+          <% end %>
+        <% end %>
+      <% end %>      
+      </li>
+    <% end %>
+    </ul>

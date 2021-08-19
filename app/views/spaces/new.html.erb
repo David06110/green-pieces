@@ -1,16 +1,18 @@
-<h1>Create a new space in our markeplace !</h1>
-<h2>Rent it easily through our app! </h2>
+<div class="container" class='text-center'>
+    <h1>Create a new space in our marketplace !  </h1>
+      <p><em>Rent it easily through the app! </em><p>
+  </div>
+</div>
 
-
-<div class="container">
-  <div class="form-wrapper bg-white p-4 rounded " id="booking-form-div">
-    <h2>Enter space availabilities</h2>
+<div class="container" class='text-center' class="col-xs-3">
+  <div class="form-wrapper bg-white p-4 rounded  " id="booking-form-div">
+    <h2>Create your space now</h2>
     <%= simple_form_for @space do |f| %>
       <%= f.input :name, placeholder: "Enter your space name", input_html: {class:"bg-success"} %>
-      <%= f.input :style, collection: Space::STYLE, include_blank: false, include_hidden: false %>
+      <%= f.input :style, placeholder: "Select your space type", collection: Space::STYLE, include_blank: false, include_hidden: false %>
 
 
-      <%= f.input :check_in, label: "Select your entry date",
+      <%= f.input :check_in, label: "Select the entry and departure date",
                               as: :string,
                               required: false,
                               input_html: { id: "range_start", class: "d-none"} %>
@@ -19,8 +21,10 @@
                               required: false,
                               input_html: { id: "range_end", class: "d-none"} %>
 
-      <%= f.input :price %>
-      <%= f.button :submit, "Submit your dates", class: "btn btn-primary" %>
+
+      <%= f.input :price, placeholder: "Mention a price for the rental period" %>
+      <%= f.button :submit, "Submit your dates", class: "btn btn-success" %>
+
     <% end %>
   </div>
 </div>
