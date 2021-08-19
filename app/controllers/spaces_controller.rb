@@ -10,6 +10,7 @@ class SpacesController < ApplicationController
     else
       @spaces = Space.all
     end
+
     @markers = @spaces.geocoded.map do |space|
     {
       lat: space.latitude,
@@ -17,8 +18,7 @@ class SpacesController < ApplicationController
       info_window: render_to_string(partial: "info_window", locals: { space: space })
     }
 
-    @bookings = Booking.all
-    end
+  end
       #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
       @bookings = Booking.all
 
@@ -33,12 +33,12 @@ class SpacesController < ApplicationController
     #     from: date.check_in,
     #     to: date.check_out
     #   }
-    # end 
+    # end
 
   end
 
   def new
-    
+
   end
 
   def create
