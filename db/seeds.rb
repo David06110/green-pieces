@@ -11,6 +11,7 @@ test2 = User.create(email:"audrey@google.com", password: "audrey")
 test3 = User.create(email:"maria@gmail.com", password: "maria000")
 test4 = User.create(email: "pedro@hotmail.com", password: "pedro000")
 
+
 p test0
 p test1
 p test2

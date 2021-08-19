@@ -1,11 +1,26 @@
-<h1>Spaces#new</h1>
-<p>Find me in app/views/spaces/new.html.erb</p>
+<h1>Create a new space in our markeplace !</h1>
+<h2>Rent it easily through our app! </h2>
 
-<%= simple_form_for [ @space ] do |f| %>
-  <%= f.input :name %>
-  <%= f.input :style %>
-  <%= f.input :check_in %>
-  <%= f.input :check_out %>
-  <%= f.input :price %>
-  <%= f.submit "Submit your space", class: "btn btn-primary" %>
-<% end %>
+
+<div class="container">
+  <div class="form-wrapper bg-white p-4 rounded " id="booking-form-div">
+    <h2>Enter space availabilities</h2>
+    <%= simple_form_for @space do |f| %>
+      <%= f.input :name, placeholder: "Enter your space name", input_html: {class:"bg-success"} %>
+      <%= f.input :style, collection: Space::STYLE, include_blank: false, include_hidden: false %>
+
+
+      <%= f.input :check_in, label: "Select your entry date",
+                              as: :string,
+                              required: false,
+                              input_html: { id: "range_start", class: "d-none"} %>
+      <%= f.input :check_out, label: false,
+                              as: :string,
+                              required: false,
+                              input_html: { id: "range_end", class: "d-none"} %>
+
+      <%= f.input :price %>
+      <%= f.button :submit, "Submit your dates", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
