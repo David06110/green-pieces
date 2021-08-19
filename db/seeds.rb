@@ -22,8 +22,8 @@ p test4
 # Seed pour Spaces
 p "Creation du coin de paradis"
 
-space0 = Space.create!(description: "Nestled in lush greenery on the heights of Cannes and boasting breathtaking views over the bay of Cannes, the Cap d’Antibes and Esterel mountains, this luxury contemporary style property of 720sqm will carry you right away in a world of wellness and serenity..", address: "3318 Gd Bd de Super Cannes, 06220 Vallauris", style: "Garden", name: "Golf ready", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "150€",user_id: test0.id)
-p space0
+# space0 = Space.create!(description: "Nestled in lush greenery on the heights of Cannes and boasting breathtaking views over the bay of Cannes, the Cap d’Antibes and Esterel mountains, this luxury contemporary style property of 720sqm will carry you right away in a world of wellness and serenity..", address: "3318 Gd Bd de Super Cannes, 06220 Vallauris", style: "Garden", name: "Golf ready", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "150€",user_id: test0.id)
+
 space1 = Space.create!(description: "Bien plus qu’une plage et un restaurant, 3.14 plage offre une expérience unique en plein cœur de la célèbre Croisette de Cannes. Illuminée du généreux soleil méditerranéen, 3.14 PLAGE dégage une atmosphère propice au bien-être et à la détente.", address: "Bd de la Croisette, 06400 Cannes", style: "Pool", name: "big pool", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
 p space1
 space2 = Space.create!(description: "La Villa Thuret est un jardin botanique, situé à Antibes, dans le département français des Alpes-Maritimes.", address: "90 Chem. Gustave Raymond, 06160 Antibes", style: "Outdoor kitchen", name: "corner for tomatoes", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "220€",user_id: test2.id)

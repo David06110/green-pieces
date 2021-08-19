@@ -1,10 +1,10 @@
 class Space < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
- 
+
   STYLE = ["Garden", "Pool", "Outdoor kitchen"]
   validates :style, presence: true, inclusion: {in: STYLE}
   # validates :name, presence: true, uniqueness: true

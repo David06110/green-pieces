@@ -9,6 +9,7 @@
     <h2>Create your space now</h2>
     <%= simple_form_for @space do |f| %>
       <%= f.input :name, placeholder: "Enter your space name", input_html: {class:"bg-success"} %>
+      <%= f.input :address, placeholder: "Enter your address", input_html: {class:"bg-success"} %>
       <%= f.input :style, placeholder: "Select your space type", collection: Space::STYLE, include_blank: false, include_hidden: false %>
 
 
