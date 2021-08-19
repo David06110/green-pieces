@@ -1,6 +1,10 @@
 class Space < ApplicationRecord
   belongs_to :user
-  validates :style, presence: true
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
+#  validates :style, presence: true
   # validates :name, presence: true, uniqueness: true
   # validates :name, uniqueness: { scope: :check_in, message: "is already in the list" } #one name for one date
   validates :name, uniqueness: { scope: [:check_out, :check_in], message: "is already in the list" } #one name for one date
