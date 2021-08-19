@@ -5,15 +5,21 @@ class SpacesController < ApplicationController
   #before_action :find_space, only: [:show, :edit, :update, :destroy]
 
   def index
-    @spaces = Space.all
-      @markers = @spaces.geocoded.map do |space|
-      {
-        lat: space.latitude,
-        lng: space.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { space: space }),
-        #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
-      }
+    if params[:query]
+      @spaces = Space.where(style: params[:query])
+    else
+      @spaces = Space.all
     end
+    @markers = @spaces.geocoded.map do |space|
+    {
+      lat: space.latitude,
+      lng: space.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { space: space })
+    }
+    end
+      #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      @bookings = Booking.all
+
 
   end
 end
@@ -26,7 +32,7 @@ end
         from: booking.check_in,
         to: booking.check_out
       }
-    end 
+    end
   end
 
   def new
