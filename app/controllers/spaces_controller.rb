@@ -30,12 +30,14 @@ end
   end
 
   def new
-    @space = Space.new
+    @space = Space.new()
   end
 
   def create
     @space = Space.new(space_params)
     @space.user = current_user
+    @space.check_in = Date.parse(@space.check_in).strftime("%d/%m/%Y")
+    @space.check_out = Date.parse(@space.check_out).strftime("%d/%m/%Y")
     @space.save!
     redirect_to space_path(@space.id)
   end
