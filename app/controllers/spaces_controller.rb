@@ -1,9 +1,8 @@
 class SpacesController < ApplicationController
   before_action :authenticate_user!
 
-  #include Pundit
-  #before_action :find_space, only: [:show, :edit, :update, :destroy]
-
+  before_action :find_space, only: [:show, :edit, :update, :destroy]
+  before_action :new_space, only: :new
   def index
     @spaces = Space.all
       @markers = @spaces.geocoded.map do |space|
@@ -19,7 +18,6 @@ class SpacesController < ApplicationController
 end
 
   def show
-    @space = Space.find(params[:id])
     @booking = Booking.new
     # @space_dates = @space.map do |date|
     #   {
@@ -30,7 +28,7 @@ end
   end
 
   def new
-    @space = Space.new()
+    
   end
 
   def create
@@ -43,17 +41,14 @@ end
   end
 
   def edit
-  @space = Space.find(params[:id])
   end
 
   def update
-    @space = Space.find(params[:id])
     @space.update(space_params)
     redirect_to space_path(@space)
   end
 
   #def destroy
-   # @space = Space.find(params[:id])
    # @space.destroy
    # redirect_to space_path(@space)
   #end
@@ -62,4 +57,12 @@ end
 private
   def space_params
    params.require(:space).permit(:name, :style, :price, :check_in, :check_out)
+  end
+
+  def find_space
+    @space = Space.find(params[:id])
+  end
+
+  def new_space
+    @space = Space.new()
   end
