@@ -21,15 +21,15 @@ p test4
 
 # Seed pour Spaces
 p "Creation du coin de paradis"
-space0 = Space.create(style: "greens", name: "Golf ready", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "150€",user_id: test0.id)
+space0 = Space.create!(style: "Garden", name: "Golf ready", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "150€",user_id: test0.id)
 p space0
-space1 = Space.create(style: "pink", name: "big pool", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
+space1 = Space.create!(style: "Pool", name: "big pool", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
 p space1
-space2 = Space.create(style: "blue", name: "corner for tomatoes", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "220€",user_id: test2.id)
+space2 = Space.create!(style: "Outdoor kitchen", name: "corner for tomatoes", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "220€",user_id: test2.id)
 p space2
-space3 = Space.create(style: "pool", name: "Piscine du soleil", check_in: "01/08/2021 15h", check_out: "31/08/2021 16h", price: "350€", user_id: test3.id)
+space3 = Space.create!(style: "Pool", name: "Piscine du soleil", check_in: "01/08/2021 15h", check_out: "31/08/2021 16h", price: "350€", user_id: test3.id)
 p space3
-space4 = Space.create(style: "outdoor_kitchen", name: "Kitchena maravillosa", check_in: "01/06/2021 14h", check_out: "31/08/2021 16h", price: "550€", user_id: test4.id)
+space4 = Space.create!(style: "Outdoor kitchen", name: "Kitchena maravillosa", check_in: "01/06/2021 14h", check_out: "31/08/2021 16h", price: "550€", user_id: test4.id)
 p space4
 
 

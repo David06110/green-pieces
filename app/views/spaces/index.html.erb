@@ -1,19 +1,28 @@
-<h1>Spaces#index</h1>
+<h1>Spaces#index</h1> <%= link_to "Add a new space", new_space_path %>
 <p>Find me in app/views/spaces/index.html.erb</p>
 
 
 <ul>
     <% @spaces.each do |space| %>
-    <li><%= link_to space.name, space_path(space) %> <%= link_to "show", space_path(space.id) %> </li>
-  <% end %>
+      <li>
+      <% if space.user_id == current_user.id %>
+        <%= "Owned" %>
+      <% end %>
+      <%= link_to space.name, space_path(space) %>
+      <% if @bookings != nil %>  
+        <% @bookings.each do |booking| %>
+          <% if booking.space_id == space.id%>
+            <%= "Booked" %>
+          <% end %>
+        <% end %>
+      <% end %>      
+      </li>
+    <% end %>
 </ul>
+   
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
 
-<%= link_to "Add a new space",new_space_path %>
-
-    <%#= link_to "Create #{@space.name}",
-           # space_path(@space),
-           # method: :create,
-            #data: { confirm: "Do you want to create this space?" } %>
-
-
- 

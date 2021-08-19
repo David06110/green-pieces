@@ -1,2 +1,11 @@
 <h1>Spaces#edit</h1>
 <p>Find me in app/views/spaces/edit.html.erb</p>
+
+<%= simple_form_for [ @space ] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :style %>
+  <%= f.input :check_in %>
+  <%= f.input :check_out %>
+  <%= f.input :price %>
+  <%= f.submit "Submit your changes", class: "btn btn-secondary" %>
+<% end %>

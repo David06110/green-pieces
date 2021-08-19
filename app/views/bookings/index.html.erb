@@ -8,8 +8,7 @@
 <%# <%= simple_form_for(article) do |f| %>
   <%# <%= f.input :photo, as: :file %>
 <%# <% end %>
-
-<% if @bookings_user %>
+<% if @bookings_user[0] %>
   <h2>Space booked</h2>
   <ul>
     <% @bookings_user.each do |booking| %>
@@ -17,6 +16,7 @@
       
     <% end %>
   </ul>
+  <<%= link_to "Back to landing", root_path %>>
 <% else %>
   <h2>You don't have any booked space yet</h2>
   <%= link_to "Let's go book a space", spaces_path %>

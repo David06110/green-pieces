@@ -10,9 +10,17 @@
 
 <%# <%= link_to "Book this space now", new_booking_path %>
 <%# <%= link_to "Book this space now", new_booking_path(@space.id), method: :submit %>
-<%= simple_form_for [ @booking ] do |f| %>
-  <%= f.input :space_id, :as => :hidden, :input_html => { :value => @space.id } %>
-  <%= f.submit "Book this space now", class: "btn btn-primary" %>
-<% end %>
+ <% if @space.user_id == current_user.id %>
+  <%= link_to "Back", spaces_path %>
+  <%= link_to "Edit", edit_space_path(@space) %>
 
+ <% else %>
+  <%= simple_form_for [ @booking ] do |f| %>
+    <%= f.input :space_id, :as => :hidden, :input_html => { :value => @space.id } %>
+    <%= f.submit "Book this space now", class: "btn btn-primary" %>
+  <% end %>
+ <% end %>
 
+  <%# <% @bookings.each do |booking| %> %>
+    <%# <% booking.space_id %> %>
+  <%# <% end %> %>
