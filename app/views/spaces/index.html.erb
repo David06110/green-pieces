@@ -1,19 +1,13 @@
-<h1>Spaces#index</h1>
+<h1>Spaces#index</h1> <%= link_to "Add a new space",new_space_path %>
 <p>Find me in app/views/spaces/index.html.erb</p>
 
 
 <ul>
     <% @spaces.each do |space| %>
-    <li><%= link_to space.name, space_path(space) %> <%= link_to "show", space_path(space.id) %> </li>
+    <li><% if space.user_id == current_user.id %>
+          <%= "Owned" %>
+        <% end %>
+    <%= link_to space.name, space_path(space) %></li>
   <% end %>
 </ul>
 
-<%= link_to "Add a new space",new_space_path %>
-
-    <%#= link_to "Create #{@space.name}",
-           # space_path(@space),
-           # method: :create,
-            #data: { confirm: "Do you want to create this space?" } %>
-
-
- 

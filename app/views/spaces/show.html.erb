@@ -10,7 +10,7 @@
 
 <%# <%= link_to "Book this space now", new_booking_path %>
 <%# <%= link_to "Book this space now", new_booking_path(@space.id), method: :submit %>
- <% if @space.user_id = current_user %>
+ <% if @space.user_id == current_user.id %>
   <%= link_to "Back", spaces_path %>
   <%= link_to "Edit", edit_space_path(@space) %>
 
