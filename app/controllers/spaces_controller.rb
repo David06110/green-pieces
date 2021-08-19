@@ -4,6 +4,7 @@ class SpacesController < ApplicationController
   before_action :find_space, only: [:show, :edit, :update, :destroy]
   before_action :new_space, only: :new
   def index
+    @bookings = Booking.all
     @spaces = Space.all
       @markers = @spaces.geocoded.map do |space|
       {
@@ -15,7 +16,6 @@ class SpacesController < ApplicationController
     end
 
   end
-end
 
   def show
     @booking = Booking.new
@@ -66,3 +66,5 @@ private
   def new_space
     @space = Space.new()
   end
+
+end

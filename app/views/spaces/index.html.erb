@@ -9,7 +9,7 @@
         <%= "Owned" %>
       <% end %>
       <%= link_to space.name, space_path(space) %>
-      <% if @bookings ==! nil %>  
+      <% if @bookings != nil %>  
         <% @bookings.each do |booking| %>
           <% if booking.space_id == space.id%>
             <%= "Booked" %>
