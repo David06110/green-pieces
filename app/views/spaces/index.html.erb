@@ -1,21 +1,13 @@
 
-<%= link_to "Add a new space", new_space_path %>
-<%= form_tag spaces_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a space"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+<%= link_to "Add a new space", new_space_path, class: "btn btn-primary"%>
 
 <div>
   <div class="container text-center">
     <h1>Select your garden</h1>
       <div>
-        <a class="btn btn-primary" href="">Pool</a>
-        <a class="btn btn-primary" href="">Garden</a>
-        <a class="btn btn-primary" href="">Kitchen</a>
+      <%= link_to "Pool", spaces_path(query: "Pool"), class: "btn btn-primary" %>
+      <%= link_to "Garden", spaces_path(query: "Garden"), class: "btn btn-primary" %>
+      <%= link_to "Kitchen", spaces_path(query: "Outdoor kitchen"), class: "btn btn-primary" %>
       </div>
   </div>
   <div class="mt-4 wrapper ">
@@ -38,13 +30,13 @@
         <%= "Owned" %>
       <% end %>
       <%= link_to space.name, space_path(space) %>
-      <% if @bookings != nil %>  
+      <% if @bookings != nil %>
         <% @bookings.each do |booking| %>
           <% if booking.space_id == space.id%>
             <%= "Booked" %>
           <% end %>
         <% end %>
-      <% end %>      
+      <% end %>
       </li>
     <% end %>
     </ul>

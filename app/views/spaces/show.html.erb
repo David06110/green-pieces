@@ -1,38 +1,57 @@
-<div class="container" class='text-center'>
-  <h1>Space information </h1>
-    <p><em>Before booking your space, get more information about the space you selected </em> </p>
+<div class="d-flex bg-all justify-content-center"> 
+  <div class='container text-center'>
+    <h1>Space information </h1>
+      <p><em>Before booking your space, get more information about the space you selected </em> </p>
+    </div>
+  </div>
+
+  <div class='container justify-content-center'>
+    <div class="space-info">
+      <img src="https://www.excellenceimmobilier.fr/public/img/big/10990666125acf17687e6c01380248551920jpg_5ba3aeb57e0bb.jpg" />
+        <div class="space-info-infos">
+          <h2> <%= @space.name %></h2>
+          <p>Nestled in lush greenery on the <strong>heights of Cannes</strong> and boasting breathtaking views over the bay of Cannes, the Cap d’Antibes and Esterel mountains, this luxury contemporary style property of 720sqm will carry you right away in a world of wellness and serenity.</p>
+        </div>
+    </div>
+    
+
+    <div class="space-info">
+      <img src="https://www.mimosa.villas/rentals/fotos/2/1488173861c6eb57658997cfe1f8a33449088f4db6/1520189220e33dc62304a376137ff7a40829ac2b8e.jpg" />
+        <div class="space-info-infos">
+          <h2> <%= @space.style %> </h2>
+          <p> <strong>heights of Cannes</strong> and boasting breathtaking views over the bay of Cannes, the Cap d’Antibes and Esterel mountains, this luxury contemporary style property of 720sqm will carry you right away in a world of wellness and serenity.</p>
+        </div>
+    </div>
+
+    <div class="space-info">
+      <img src="https://d1qfj231ug7wdu.cloudfront.net/pictures/estate/2854/2853481/18403629475c9360269325f8.90524472_1920.jpg" />
+      <div class="space-info-infos">
+        <h2> <%= @space.price %> </h2>
+        <p>Nestled in lush greenery on the <strong>heights of Cannes</strong> and boasting breathtaking views over the bay of Cannes, the Cap d’Antibes and Esterel mountains, this luxury contemporary style property of 720sqm will carry you right away in a world of wellness and serenity.</p>
+      </div>
+    </div>
+
+      
+    <div class='row d-flex justify-content-center'>
+        <div>
+          <% if @space.user_id == current_user.id %>
+            <%= link_to "Back", spaces_path %>
+            <%= link_to "Edit", edit_space_path(@space) %>
+          <% elsif @booked %>
+            <%= "Space already booked" %>
+            <%= link_to "Back", spaces_path %>
+          <% else %>
+            <%= simple_form_for [ @booking ] do |f| %>
+              <%= f.input :space_id, :as => :hidden, :input_html => { :value => @space.id } %>
+              <%= f.submit "Book this space now", class: "btn btn-success" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
   </div>
 </div>
-
-<div class="container" class='text-center'>
-  <h2><%= @space.name %></h2>
-  <p><%= @space.style %></p>
-  <p><%= @space.check_in %></p>
-  <p><%= @space.check_out %></p>
-  <h2><%= @space.price %></h2>
-  </div>
-</div>
-
-
-<div class="space-info">
-  <img src="https://www.excellenceimmobilier.fr/public/img/big/10990666125acf17687e6c01380248551920jpg_5ba3aeb57e0bb.jpg" />
-  <div class="space-info-infos">
-    <h2> About the space your are looking for</h2>
-    <p>Nestled in lush greenery on the <strong>heights of Cannes</strong> and boasting breathtaking views over the bay of Cannes, the Cap d’Antibes and Esterel mountains, this luxury contemporary style property of 720sqm will carry you right away in a world of wellness and serenity.</p>
-  </div>
-</div>
-
-
-
-<%# <%= link_to "Book this space now", new_booking_path %>
-<%# <%= link_to "Book this space now", new_booking_path(@space.id), method: :submit %>
- <% if @space.user_id == current_user.id %>
-  <%= link_to "Back", spaces_path %>
-  <%= link_to "Edit", edit_space_path(@space) %>
-
- <% else %>
-  <%= simple_form_for [ @booking ] do |f| %>
-    <%= f.input :space_id, :as => :hidden, :input_html => { :value => @space.id } %>
-    <%= f.submit "Book this space now", class: "btn btn-success" %>
-  <% end %>
- <% end %>
+  <%# <%= link_to "Book this space now", new_booking_path %>
+  <%# <%= link_to "Book this space now", new_booking_path(@space.id), method: :submit %>
+    <%# <% @bookings.each do |booking| %>
+      <%# <% booking.space_id %>
+    <%# <% end %>

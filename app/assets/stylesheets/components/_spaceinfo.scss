@@ -1,15 +1,18 @@
 .space-info {
   overflow: hidden;
-  height: 120px;
+  height: 250px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  padding-bottom: 12px;
+  margin: 12px;
 }
 
 .space-info img {
+  position: right;
   height: 100%;
-  width: 120px;
+  width: 320px;
   object-fit: cover;
 }
 
@@ -29,4 +32,9 @@
 
 .space-info .space-info-infos {
   padding: 16px;
+}
+
+.bg-all {
+ margin: 15px;
+ background-color: rgb(214, 211, 211);
 }

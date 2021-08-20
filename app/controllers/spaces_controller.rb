@@ -27,8 +27,10 @@ class SpacesController < ApplicationController
 
   def show
     @booking = Booking.new
+    
+    @booked = Booking.where(space_id: @space.id).present?
 
-    # @space_dates = @space.map do |date|
+     # @space_dates = @space.map do |date|
     #   {
     #     from: date.check_in,
     #     to: date.check_out
@@ -58,6 +60,10 @@ class SpacesController < ApplicationController
     redirect_to space_path(@space)
   end
 
+  def booked?
+    Booking.find(@space.id).nil?
+  end
+
   #def destroy
    # @space.destroy
    # redirect_to space_path(@space)
@@ -66,7 +72,7 @@ class SpacesController < ApplicationController
 
 private
   def space_params
-   params.require(:space).permit(:name, :style, :price, :check_in, :check_out)
+   params.require(:space).permit(:name, :style, :price, :check_in, :check_out, :photo)
   end
 
   def find_space
@@ -75,6 +81,10 @@ private
 
   def new_space
     @space = Space.new()
+  end
+
+  def booked?
+    Booking.find(@space.id).nil?
   end
 
 end
