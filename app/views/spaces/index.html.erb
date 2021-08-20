@@ -1,42 +1,25 @@
 
-<%= link_to "Add a new space", new_space_path, class: "btn btn-primary"%>
+<%#= link_to "Add a new space", new_space_path, class: "btn btn-primary"%>
 
-<div>
-  <div class="container text-center">
-    <h1>Select your garden</h1>
-      <div>
+<div class="mt-4">
+  <div class="container text-center ">
+    <h1>Make your choice</h1>
+      <div class="mt-4 ">
       <%= link_to "Pool", spaces_path(query: "Pool"), class: "btn btn-primary" %>
       <%= link_to "Garden", spaces_path(query: "Garden"), class: "btn btn-primary" %>
       <%= link_to "Kitchen", spaces_path(query: "Outdoor kitchen"), class: "btn btn-primary" %>
       </div>
   </div>
   <div class="mt-4 wrapper ">
-    <div id="aside" class="">
+    <div id="aside" class="mt-4">
       <% @spaces.each do |space| %>
         <%= render "card", space: space %>
       <% end %>
     </div>
-    <div class="" id="map"
+    <div class="mt-4" id="map"
         style="width: 100%; height: 600px;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
 </div>
-    <ul>
-    <% @spaces.each do |space| %>
-      <li>
-      <% if space.user_id == current_user.id %>
-        <%= "Owned" %>
-      <% end %>
-      <%= link_to space.name, space_path(space) %>
-      <% if @bookings != nil %>
-        <% @bookings.each do |booking| %>
-          <% if booking.space_id == space.id%>
-            <%= "Booked" %>
-          <% end %>
-        <% end %>
-      <% end %>
-      </li>
-    <% end %>
-    </ul>

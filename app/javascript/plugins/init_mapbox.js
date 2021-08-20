@@ -13,7 +13,7 @@ const initMapbox = () => {
   const mapElement = document.getElementById('map');
   if (mapElement) {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-    console.log(markers)
+
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v9',
@@ -23,6 +23,12 @@ const initMapbox = () => {
       antialias: true,
       bearing: -17.6
     });
+    map.addControl(new mapboxgl.FullscreenControl(
+
+        console.log(this)
+
+    ));
+
     // function rotateCamera(timestamp) {
     //   // clamp the rotation between 0 -360 degrees
     //   // Divide timestamp by 100 to slow rotation to ~10 degrees / sec
@@ -104,7 +110,7 @@ const initMapbox = () => {
     });
 
     fitMapToMarkers(map, markers);
-
+    console.log(map)
     map.addControl(
       new MapboxDirections({
         accessToken: mapboxgl.accessToken,
@@ -115,6 +121,7 @@ const initMapbox = () => {
     );
 
   }
+
 
 };
 
