@@ -1,36 +1,53 @@
-<h1>Spaces#show</h1>
-<p>Find me in app/views/spaces/show.html.erb</p>
+<div class="d-flex bg-all justify-content-center"> 
+  <div class='container text-center'>
+    <h1>Space information </h1>
+      <p><em>Before booking your space, get more information about the space you selected </em> </p>
+    </div>
+  </div>
 
-<h2><%= @space.name %></h2>
+  <div class='row d-flex justify-content-center'>
+        <div>
+          <% if @space.user_id == current_user.id %>
+            <%= link_to "Back", spaces_path %>
+            <%= link_to "Edit", edit_space_path(@space) %>
+          <% elsif @booked %>
+            <%= "Space already booked" %>
+            <%= link_to "Back", spaces_path %>
+          <% else %>
+            <%= simple_form_for [ @booking ] do |f| %>
+              <%= f.input :space_id, :as => :hidden, :input_html => { :value => @space.id } %>
+              <%= f.submit "Book this space now", class: "btn btn-success" %>
+              <%= link_to "Back", spaces_path, class: "btn btn-secondary" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+  </div>
 
-<p><%= @space.style %></p>
-<p><%= @space.check_in %></p>
-<p><%= @space.check_out %></p>
-<h2><%= @space.price %></h2>
-
-<%# <%= link_to "Book this space now", new_booking_path %>
-<%# <%= link_to "Book this space now", new_booking_path(@space.id), method: :submit %>
-  <%# <% @bookings.each do |booking| %>
-    <%# <% booking.space_id %>
-  <%# <% end %>
-
-
-<% if @space.user_id == current_user.id %>
-  <%= link_to "Back", spaces_path %>
-  <%= link_to "Edit", edit_space_path(@space) %>
-
-<% elsif @booked %>
- 
-<%= "Space already booked" %>
-  <%= link_to "Back", spaces_path %>
+  <div class='container justify-content-center'>
+    <div class="space-info">
+      <% if @space.photo.attached? %>
+        <%= cl_image_tag @space.photo.key, crop: :fill %>
+      <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <% end %>
+        <div class="space-info-infos text-center pg-1">
+          <h1> <%= @space.name %></h1>
+          <p><%= @space.description %></p>
+          <h2> Type of space : <%= @space.style %> </h2>
+          <p><%= @space.address %></p>
 
 
+        </div>
+    </div>
+    
 
-<% else %>
-  <%= simple_form_for [ @booking ] do |f| %>
-    <%= f.input :space_id, :as => :hidden, :input_html => { :value => @space.id } %>
-    <%= f.submit "Book this space now", class: "btn btn-primary" %>
-  <% end %>
-<% end %>
-
-  
+    <div class="space-info text-center pg-1">
+      <img src="https://www.mimosa.villas/rentals/fotos/2/1488173861c6eb57658997cfe1f8a33449088f4db6/1520189220e33dc62304a376137ff7a40829ac2b8e.jpg" />
+        <div class="space-info-infos">
+          <h4>Reservation from <%= @space.check_in %> to <%= @space.check_out %>.</h4>
+        </div>
+    </div>
+    
+    
+</div>
