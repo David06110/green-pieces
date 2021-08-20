@@ -1,12 +1,28 @@
-<h1>Spaces#show</h1>
-<p>Find me in app/views/spaces/show.html.erb</p>
+<div class="container" class='text-center'>
+  <h1>Space information </h1>
+    <p><em>Before booking your space, get more information about the space you selected </em> </p>
+  </div>
+</div>
 
-<h2><%= @space.name %></h2>
+<div class="container" class='text-center'>
+  <h2><%= @space.name %></h2>
+  <p><%= @space.style %></p>
+  <p><%= @space.check_in %></p>
+  <p><%= @space.check_out %></p>
+  <h2><%= @space.price %></h2>
+  </div>
+</div>
 
-<p><%= @space.style %></p>
-<p><%= @space.check_in %></p>
-<p><%= @space.check_out %></p>
-<h2><%= @space.price %></h2>
+
+<div class="space-info">
+  <img src="https://www.excellenceimmobilier.fr/public/img/big/10990666125acf17687e6c01380248551920jpg_5ba3aeb57e0bb.jpg" />
+  <div class="space-info-infos">
+    <h2> About the space your are looking for</h2>
+    <p>Nestled in lush greenery on the <strong>heights of Cannes</strong> and boasting breathtaking views over the bay of Cannes, the Cap d’Antibes and Esterel mountains, this luxury contemporary style property of 720sqm will carry you right away in a world of wellness and serenity.</p>
+  </div>
+</div>
+
+
 
 <%# <%= link_to "Book this space now", new_booking_path %>
 <%# <%= link_to "Book this space now", new_booking_path(@space.id), method: :submit %>
@@ -17,10 +33,6 @@
  <% else %>
   <%= simple_form_for [ @booking ] do |f| %>
     <%= f.input :space_id, :as => :hidden, :input_html => { :value => @space.id } %>
-    <%= f.submit "Book this space now", class: "btn btn-primary" %>
+    <%= f.submit "Book this space now", class: "btn btn-success" %>
   <% end %>
  <% end %>
-
-  <%# <% @bookings.each do |booking| %> %>
-    <%# <% booking.space_id %> %>
-  <%# <% end %> %>
