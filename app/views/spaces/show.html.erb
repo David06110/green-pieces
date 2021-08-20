@@ -5,34 +5,7 @@
     </div>
   </div>
 
-  <div class='container justify-content-center'>
-    <div class="space-info">
-      <img src="https://www.excellenceimmobilier.fr/public/img/big/10990666125acf17687e6c01380248551920jpg_5ba3aeb57e0bb.jpg" />
-        <div class="space-info-infos">
-          <h2> <%= @space.name %></h2>
-          <p>Nestled in lush greenery on the <strong>heights of Cannes</strong> and boasting breathtaking views over the bay of Cannes, the Cap d’Antibes and Esterel mountains, this luxury contemporary style property of 720sqm will carry you right away in a world of wellness and serenity.</p>
-        </div>
-    </div>
-    
-
-    <div class="space-info">
-      <img src="https://www.mimosa.villas/rentals/fotos/2/1488173861c6eb57658997cfe1f8a33449088f4db6/1520189220e33dc62304a376137ff7a40829ac2b8e.jpg" />
-        <div class="space-info-infos">
-          <h2> <%= @space.style %> </h2>
-          <p> <strong>heights of Cannes</strong> and boasting breathtaking views over the bay of Cannes, the Cap d’Antibes and Esterel mountains, this luxury contemporary style property of 720sqm will carry you right away in a world of wellness and serenity.</p>
-        </div>
-    </div>
-
-    <div class="space-info">
-      <img src="https://d1qfj231ug7wdu.cloudfront.net/pictures/estate/2854/2853481/18403629475c9360269325f8.90524472_1920.jpg" />
-      <div class="space-info-infos">
-        <h2> <%= @space.price %> </h2>
-        <p>Nestled in lush greenery on the <strong>heights of Cannes</strong> and boasting breathtaking views over the bay of Cannes, the Cap d’Antibes and Esterel mountains, this luxury contemporary style property of 720sqm will carry you right away in a world of wellness and serenity.</p>
-      </div>
-    </div>
-
-      
-    <div class='row d-flex justify-content-center'>
+  <div class='row d-flex justify-content-center'>
         <div>
           <% if @space.user_id == current_user.id %>
             <%= link_to "Back", spaces_path %>
@@ -44,14 +17,37 @@
             <%= simple_form_for [ @booking ] do |f| %>
               <%= f.input :space_id, :as => :hidden, :input_html => { :value => @space.id } %>
               <%= f.submit "Book this space now", class: "btn btn-success" %>
+              <%= link_to "Back", spaces_path, class: "btn btn-secondary" %>
             <% end %>
           <% end %>
         </div>
       </div>
   </div>
+
+  <div class='container justify-content-center'>
+    <div class="space-info">
+      <% if @space.photo.attached? %>
+        <%= cl_image_tag @space.photo.key, crop: :fill %>
+      <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <% end %>
+        <div class="space-info-infos text-center pg-1">
+          <h1> <%= @space.name %></h1>
+          <p><%= @space.description %></p>
+          <h2> Type of space : <%= @space.style %> </h2>
+          <p><%= @space.address %></p>
+
+
+        </div>
+    </div>
+    
+
+    <div class="space-info text-center pg-1">
+      <img src="https://www.mimosa.villas/rentals/fotos/2/1488173861c6eb57658997cfe1f8a33449088f4db6/1520189220e33dc62304a376137ff7a40829ac2b8e.jpg" />
+        <div class="space-info-infos">
+          <h4>Reservation from <%= @space.check_in %> to <%= @space.check_out %>.</h4>
+        </div>
+    </div>
+    
+    
 </div>
-  <%# <%= link_to "Book this space now", new_booking_path %>
-  <%# <%= link_to "Book this space now", new_booking_path(@space.id), method: :submit %>
-    <%# <% @bookings.each do |booking| %>
-      <%# <% booking.space_id %>
-    <%# <% end %>
