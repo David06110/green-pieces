@@ -78,33 +78,6 @@ space12.photo.attach(io: file, filename: 'design.png', content_type: 'image/png'
 file = URI.open('https://www.deco-et-ambiances.fr/wp-content/uploads/2020/10/1-cuisine-exterieure-couverte-istock.jpg')
 space13 = Space.create!(description: "On aime : le total look blanc de cette cuisine d’été !", address: " 185 Bd de Saint Antoine de Ginestière 06200 Nice", style: "Outdoor kitchen", name: "Blanche", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
 space13.photo.attach(io: file, filename: 'blanche.png', content_type: 'image/png')
-=======
-
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-space0 = Space.create(description: "La villa Ephrussi de Rothschild, appelée aussi villa Île-de-France, est un des plus beaux palais de style Renaissance de la Côte d'Azur construit sur un sommet de la presqu'île du cap Ferrat entre 1905 et 1912 à Saint-Jean-Cap-Ferrat par la baronne Béatrice Ephrussi de Rothschild", address: "1 Av. Ephrussi de Rothschild, 06230 Saint-Jean-Cap-Ferrat", style: "Garden", name: "Golf ready", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "150€",user_id: test0.id)
-space0.photo.attach(io: file, filename: 'ephrussi.png', content_type: 'image/png')
-p space0
-
-file = URI.open('https://images.unsplash.com/photo-1509600110300-21b9d5fedeb7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80')
-space1 = Space.create(description: "Bien plus qu’une plage et un restaurant, 3.14 plage offre une expérience unique en plein cœur de la célèbre Croisette de Cannes. Illuminée du généreux soleil méditerranéen, 3.14 PLAGE dégage une atmosphère propice au bien-être et à la détente.", address: "Bd de la Croisette, 06400 Cannes", style: "Pool", name: "big pool", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
-space1.photo.attach(io: file, filename: 'toto.png', content_type: 'image/png')
-
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-space2 = Space.create(description: "La Villa Thuret est un jardin botanique, situé à Antibes, dans le département français des Alpes-Maritimes.", address: "90 Chem. Gustave Raymond, 06160 Antibes", style: "Outdoor kitchen", name: "corner for tomatoes", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "220€",user_id: test2.id)
-space2.photo.attach(io: file, filename: '', content_type: 'image/png')
-
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-space3 = Space.create(description: "Transformé en hôtel, le Château Eza se trouve dans le village médiéval et piéton d'Èze. Il propose des chambres offrant une vue sur la mer Méditerranée et un restaurant gastronomique.", address: "Le Chateau, Rue de la Pise, 06360 Èze", style: "Garden", name: "Piscine du soleil", check_in: "01/08/2021 15h", check_out: "31/08/2021 16h", price: "350€", user_id: test3.id)
-p space3.photo.attach(io: file, filename: 'ttt', content_type: 'image/png')
-
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-space4 = Space.create(description: "Situé dans un palais classé monument historique à Monaco, l'Hôtel Hermitage est un hôtel cinq étoiles de luxe présentant une décoration Belle Époque, à seulement 200 mètres du casino de Monte-Carlo. Il possède un jardin d'hiver ainsi qu'un spa de 7 000 m²..", address: "Sq. Beaumarchais, 98000 Monaco", style: "Outdoor kitchen", name: "Kitchena maravillosa", check_in: "01/06/2021 14h", check_out: "31/08/2021 16h", price: "550€", user_id: test4.id)
-p space4.photo.attach(io: file, filename: 'ezrzz', content_type: 'image/png')
-
-
-file = URI.open('https://maison.20minutes.fr/wp-content/uploads/2020/05/6-cuisine-d-ete-couverte-et-salle-a-manger-leroy-merlin.jpg')
-space14 = Space.create!(description: "Vous êtes le roi du barbecue ? Le champion de la sangria ? L’as de la salade de tomates ? Alors, les cuisines d’été sont faites pour vous ! Faites de la place dans votre jardin ou sur votre terrasse et offrez vous les meilleurs dîners d’été sans bouger de chez vous !", address: " 155 avenue des Champs ELysée 75002 Paris", style: "Outdoor kitchen", name: "Loft", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
-space14.photo.attach(io: file, filename: 'loft.png', content_type: 'image/png')
 
 # p "booking test"
 # booking0 = Booking.create!(user: test0, space: space0)
