@@ -1,6 +1,10 @@
 <%= link_to space_path(space) do %>
 <div class="card-trip mb-2">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <% if space.photo.attached? %>
+    <%= cl_image_tag space.photo.key, crop: :fill %>
+  <% else %>
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <% end %>
   <div class="card-trip-infos">
     <div>
       <h2><%= space.name %></h2>
