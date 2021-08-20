@@ -1,25 +1,38 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<div class="container center-block text-center">
+  <h2>Spaces you have booked</h2>
 
-
-<%# <%= cl_image_tag("humzdtjpnkrfbrqq5k2l", %>
-      <%# # width: 400, height: 300, crop: :fill) %>
-
-<%# <%= simple_form_for(article) do |f| %>
-  <%# <%= f.input :photo, as: :file %>
-<%# <% end %>
 <% if @bookings_user[0] %>
-  <h2>Space booked</h2>
   <ul>
     <% @bookings_user.each do |booking| %>
-      <li><%= link_to booking.space.name, space_path(booking.space) %>, from <%= booking.space.check_in %> to <%= booking.space.check_out %></li>
+    
       
+      <div class="container center-block text-center">
+  <div class='container justify-content-center'>
+    <div class="space-info">
+      <% if booking.space.photo.attached? %>
+        <%= cl_image_tag booking.space.photo.key, crop: :fill %>
+      <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <% end %>
+        <div class="space-info-infos text-center pg-1">
+          <h1> <%= booking.space.name %></h1>
+          <p><%= booking.space.description %></p>
+          <h2> Type of space : <%= booking.space.style %> </h2>
+          <p><%= booking.space.address %></p>
+          <h4>Reservation from <%= booking.space.check_in %> to <%= booking.space.check_out %>.</h4>
+        </div>
+    </div>
+  </div>
+</div>
     <% end %>
+    
   </ul>
-  <<%= link_to "Back to landing", root_path %>>
+  <%= link_to "Back to landing", root_path, class: "btn btn-secondary" %>
+  <%= link_to "Let's go book another space", spaces_path, class: "btn btn-primary"  %>
+
 <% else %>
   <h2>You don't have any booked space yet</h2>
-  <%= link_to "Let's go book a space", spaces_path %>
+  <%= link_to "Let's go book a space", spaces_path, class: "btn btn-primary"  %>
 <% end %>
-
+</div>
 
