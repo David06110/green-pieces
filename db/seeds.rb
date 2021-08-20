@@ -52,32 +52,40 @@ space6.photo.attach(io: file, filename: 'prool.png', content_type: 'image/png')
 
 file = URI.open('https://images.unsplash.com/photo-1551491603-7d38b9e605f5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80')
 space7 = Space.create!(description: "Piscine disponible ! Réservez en ligne. Le jardin est magnifique ; il y a des fruits sur les arbres et des légumes au potager.
-Covid 19​,​ AUCUN problème. Pas de risque sanitaire: le jardin​,​ tout en longueur et sur 1.700 m2​,​ permet une bonne distanciation.", address: "62 Bd du Jardin Exotique, 98000 Monaco", style: "Pool", name: "Oasis Bien Etre", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
+Covid 19, AUCUN problème. Pas de risque sanitaire: le jardin, tout en longueur et sur 1.700 m2, permet une bonne distanciation.", address: "62 Bd du Jardin Exotique, 98000 Monaco", style: "Pool", name: "Oasis Bien Etre", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
 space7.photo.attach(io: file, filename: 'eEtre.png', content_type: 'image/png')
 
 file = URI.open('https://images.unsplash.com/photo-1589007758669-c58f38192d28?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80')
-space8 = Space.create!(description: "Bienvenue à vous : Havre de paix exotique dans un charmant jardin paysagé ombragé et ensoleillé.Repos​,​ détente et dépaysement assurés .", address: " Av. de la Prte d'Auteuil, 75016 Paris", style: "Pool", name: "Jardin Paysagé", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
-space8.photo.attach(io: file, filename: 'paysage.png', content_type: 'image/png')
+
+space8 = Space.create!(description: "Bienvenue à vous : Havre de paix exotique dans un charmant jardin paysagé ombragé et ensoleillé.Repos​,​ détente et dépaysement assurés .", address: " 32 avenue Durante 06000 Nice", style: "Pool", name: "Jardin Paysagé", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
+space8.photo.attach(io: file, filename: 'Jardin Paysagé.png', content_type: 'image/png')
 
 file = URI.open('https://images.unsplash.com/photo-1565190503580-3fe10c3f12db?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80')
-space9 = Space.create!(description: "Antibes Garden Party vous accueille  dans un espace  privatif  et arboré de 2000 M2 à deux pas de la plage d'Antibes Siesta  dans une ambiance tropicale.", address: " 31 All. Jules Guesde, 31400 Toulouse", style: "Pool", name: "Tropical Pool", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
-space9.photo.attach(io: file, filename: 'tropical.png', content_type: 'image/png')
+space9 = Space.create!(description: "Antibes Garden Party vous accueille  dans un espace  privatif  et arboré de 2000 M2 à deux pas de la plage d'Antibes Siesta  dans une ambiance tropicale.", address: " 31 Av du Parc Impérial 06100", style: "Pool", name: "Tropical Pool", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
+space9.photo.attach(io: file, filename: 'Tropical Pool.png', content_type: 'image/png')
 
 file = URI.open('https://images.unsplash.com/photo-1606301261162-30cf80286473?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80')
-space10 = Space.create!(description: "On aime : cette cuisine d’été qui s’intègre parfaitement dans le décor !", address:"25 rue du prado 16006 marseille", style: "Outdoor kitchen", name: "Vegetal", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
-space10.photo.attach(io: file, filename: 'vegetal.png', content_type: 'image/png')
+space10 = Space.create!(description: "On aime : cette cuisine d’été qui s’intègre parfaitement dans le décor !", address:"25 avenue de la Californie 06200 Nice", style: "Outdoor kitchen", name: "Vegetal", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
+space10.photo.attach(io: file, filename: 'Vegetal.png', content_type: 'image/png')
+
 
 file = URI.open('https://www.visitedeco.com/wp-content/uploads/Palazzetti-1140x694.jpg')
 space11 = Space.create!(description: "On aime : le coin repas installé à l’ombre sous la pergola.", address: "56 bd de cimiez 06100 Nice", style: "Outdoor kitchen", name: "Pergola", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
 space11.photo.attach(io: file, filename: 'pergola.png', content_type: 'image/png')
 
 file = URI.open('https://www.societe-les-jardiniers.fr/wp-content/uploads/2020/06/creation-installation-cuisine-jardin-Var-83.png')
-space12 = Space.create!(description: "On aime : les lignes chics et élégantes de cette cuisine extérieure.", address: " 45 rue Dante 69002 Lyon", style: "Outdoor kitchen", name: "Design", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
-space12.photo.attach(io: file, filename: 'design.png', content_type: 'image/png')
+
+space12 = Space.create!(description: "On aime : les lignes chics et élégantes de cette cuisine extérieure.", address: " 45 rue Dante 06000 Nice", style: "Outdoor kitchen", name: "Design", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
+space12.photo.attach(io: file, filename: 'Design.png', content_type: 'image/png')
 
 file = URI.open('https://www.deco-et-ambiances.fr/wp-content/uploads/2020/10/1-cuisine-exterieure-couverte-istock.jpg')
 space13 = Space.create!(description: "On aime : le total look blanc de cette cuisine d’été !", address: " 185 Bd de Saint Antoine de Ginestière 06200 Nice", style: "Outdoor kitchen", name: "Blanche", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
-space13.photo.attach(io: file, filename: 'blanche.png', content_type: 'image/png')
+space13.photo.attach(io: file, filename: 'Blanche.png', content_type: 'image/png')
+
+file = URI.open('https://maison.20minutes.fr/wp-content/uploads/2020/05/6-cuisine-d-ete-couverte-et-salle-a-manger-leroy-merlin.jpg')
+space14 = Space.create!(description: "Vous êtes le roi du barbecue ? Le champion de la sangria ? L’as de la salade de tomates ? Alors, les cuisines d’été sont faites pour vous ! Faites de la place dans votre jardin ou sur votre terrasse et offrez vous les meilleurs dîners d’été sans bouger de chez vous !", address: " 145 Route de Rimiez 06100 Nice", style: "Outdoor kitchen", name: "Loft", check_in: "16/08/21 15h", check_out: "17/08/21 15h", price: "1500€",user_id: test1.id)
+space14.photo.attach(io: file, filename: 'Loft.png', content_type: 'image/png')
+
 
 # p "booking test"
 # booking0 = Booking.create!(user: test0, space: space0)
